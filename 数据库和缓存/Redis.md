@@ -34,14 +34,16 @@
 | zset  | Sort Set< String > |压缩列表(zipList)或者跳表(SkipList) |
 
 ## redis 淘汰策略
-| 类型 | 含义 | 
-| ---- | ---- |
-| volatile-lru | 从已设置过期时间的数据集中挑选最近最少使用的数据淘汰 |
-| volatile-ttl | 从已设置过期时间的数据集中挑选将要过期的数据淘汰 |
-| volatile-random | 从已设置过期时间的数据集中任意选择数据淘汰 | 
-| allkeys-lru | 从数据集中挑选最近最少使用的数据淘汰 | 
-| allkeys-random | 从数据集中任意选择数据淘汰 | 
-| no-enviction | 不淘汰,返回错误 | 
+| 类型             | 含义                         | 
+|----------------|----------------------------|
+| volatile-lru   | 从已设置过期时间的数据集中挑选最近最少使用的数据淘汰 |
+| volatile-lfu   | 从已设置过期时间的数据集中挑选最少次的数据淘汰    |
+| volatile-ttl   | 从已设置过期时间的数据集中挑选将要过期的数据淘汰   |
+| volatile-random | 从已设置过期时间的数据集中任意选择数据淘汰      | 
+| allkeys-lru    | 从数据集中挑选最近最少使用的数据淘汰         | 
+| allkeys-lfu    | 从数据集中挑选最近最少次的数据淘汰          | 
+| allkeys-random | 从数据集中任意选择数据淘汰              | 
+| noenviction    | 不淘汰,返回错误                   | 
 
 ## redis 持久化
 - RBD: fork一个子进程隔一段时间生产快照,最大化Redis的性能.RDB write和RDB load.
@@ -96,7 +98,7 @@ encoding:
 - 每种类型的对象至少都有两种或以上的编码方式
 
 
-## Redisson - 单机 - RedssionLock
+## Redisson - 单机 - RedissonLock
  - `lock()`
    - 获取锁,获取不到则阻塞在那里,直到其他线程释放锁.
    - 如果设置了时间,则在加锁指定时间后释放锁,其他线程可以尝试抢锁
@@ -124,3 +126,8 @@ encoding:
 
 ## Redis更新数据失败了怎么办?
 - 失败保存队列
+- 
+## Redis双写不一致?
+- 延迟双删
+- 异步更新缓存
+

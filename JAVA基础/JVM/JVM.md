@@ -14,12 +14,13 @@
 
 ## 参数
 
-| 参数名称 | 作用 | Java Performance推荐值|
-| ---- | ---- | ---- |
-| Xmx/Xms | 最大/小堆空间 |设置为老年代存活对象的3-4倍|
-| Xmn | 新生代 | 设置为老年代存活对象的1-1.5倍 |
-| MaxPermSize/PermSize  | 1.8以前永久代 | 设置为老年代存活对象的1.2-1.5倍。|
-| MaxMetaspaceSize/MetaspaceSize  | 1.8之后元空间 | 设置为老年代存活对象的1.2-1.5倍。|
+| 参数名称                            | 作用          | Java Performance推荐值  |
+|---------------------------------|-------------|----------------------|
+| Xmx/Xms                         | 最大/小堆空间     | 设置为老年代存活对象的3-4倍      |
+| Xmn                             | 新生代         | 设置为老年代存活对象的1-1.5倍    |
+| MaxPermSize/PermSize            | 1.8以前永久代    | 设置为老年代存活对象的1.2-1.5倍。 |
+| MaxMetaspaceSize/MetaspaceSize  | 1.8之后元空间    | 设置为老年代存活对象的1.2-1.5倍。 |
+| -XX:MaxGCPauseMillis            | GC最大暂停时间    | 200ms                |
 | -XX:+PrintGC/-XX:+PrintGCDetails | 打印GC/GC详细日志 |
 
 - `如何确定老年代大小? ` 
